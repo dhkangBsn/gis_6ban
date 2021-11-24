@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - gis_6ban_network
+    volumes:
+      - gis_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+    environment:
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
+      MARIADB_DATABASE: django
+      MARIADB_USER_FILE: /run/secrets/MARIADB_USER
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+
+
+networks:
+  gis_6ban_network:
+
+volumes:
+  gis_mariadb:
+
+secrets:
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
+  MARIADB_USER:
+    external: true
