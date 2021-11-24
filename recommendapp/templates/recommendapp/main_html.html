@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div>
+
+    <form action="{% url 'recommendapp:recommend' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group mx-sm-3 mb-2" style="padding: 5rem">
+            <div style="margin-bottom:3rem">
+                <span style="font-size:2rem;font-family: Nanum Pen Script">
+                    노래 제목 입력
+                </span>
+            </div>
+            <input type="text" id="name" name="name" class="form-control">
+        </div>
+        <div class="m-5">
+        <input type="submit"
+               class="btn btn-dark rounded-pill px-5">
+        </div>
+    </form>
+</div>
+{% endblock %}

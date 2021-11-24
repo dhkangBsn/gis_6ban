@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'emotionapp',
     'bootstrap4',
     'imagekit',
+    'recommendapp',
 ]
 
 MIDDLEWARE = [

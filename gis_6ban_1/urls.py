@@ -22,7 +22,6 @@ from articleapp.views import ArticleListView
 
 urlpatterns = [
     path('', ArticleListView.as_view(), name='home'),
-
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
@@ -32,5 +31,5 @@ urlpatterns = [
     path('subscribe/', include('subscribeapp.urls')),
     path('likes/', include('likeapp.urls')),
     path('emotions/', include('emotionapp.urls')),
-
+    path('recommend/', include('recommendapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

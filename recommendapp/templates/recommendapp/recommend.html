@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+
+    .container{
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .container div {
+        width: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2rem;
+        flex-direction: column;
+        box-shadow: 0 0 .5rem darkgray;
+    }
+
+    .container img {
+        width: 100%;
+        border-radius: 2rem;
+    }
+</style>
+
+
+<div>
+
+    <form action="{% url 'recommendapp:recommend' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group mx-sm-3 mb-2" style="padding: 5rem">
+            <div style="margin-bottom:3rem">
+                <span style="font-size:2rem;font-family: Nanum Pen Script">
+                    노래 제목 입력
+                </span>
+            </div>
+            <input type="text" id="name" name="name" class="form-control">
+        </div>
+
+        <div class="m-5">
+        <input type="submit" class="btn btn-dark rounded-pill px-5">
+        </div>
+    </form>
+<div class="container">
+        {% for data in result %}
+                <span class="tmp" style="margin: 1.3rem">
+                    <a target="_blank" style="font-size:1.15rem; font-family: Nanum Pen Script" href="https://www.youtube.com/results?search_query={{ data }} 음악">{{ data }}
+                        <img src="{% static 'itunes.png' %}" style="width:50px; height:50px" class="article_list_contain_size" >
+                    </a>
+                </span>
+        {% endfor %}
+ </div>
+</div>
+
+{% endblock %}
