@@ -41,7 +41,7 @@
     <div class="container text-center" style="padding-top: 8px">
         <div class="my-2 mx-4">
             {#      제목, 장소, 글쓴이, 작성일자      #}
-            <h1 class="NNS_B">{{ target_article.title }}</h1>
+            <a class="NNS_B" href="https://www.youtube.com/results?search_query={{ target_article.title }} 음악" target="_blank">{{ target_article.title }}</a>
         <div class="my-4" style="display: inline">
                 <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}" class="material-icons"
                 style="vertical-align: middle; font-size:1.4rem; color: #f88;">
